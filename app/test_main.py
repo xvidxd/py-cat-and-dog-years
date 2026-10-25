@@ -14,20 +14,31 @@ from app.main import get_human_age
         (24, 24, [2, 2]),
         (27, 27, [2, 2]),
         (28, 28, [3, 2]),
-        (100, 100, [21, 17])
-    ],
-    ids=[
-        "0, 0 cat and dog years should be equal to [0, 0]",
-        "14, 14 cat and dog years should be equal to [0, 0]",
-        "15, 15 cat and dog years should be equal to [1, 1]",
-        "23, 23 cat and dog years should be equal to [1, 1]",
-        "24, 24 cat and dog years should be equal to [2, 2]",
-        "27, 27 cat and dog years should be equal to [2, 2]",
-        "28, 28 cat and dog years should be equal to [3, 2]",
-        "100, 100 cat and dog years should be equal to [21, 17]",
+        (100, 100, [21, 17]),
+        (27, 28, [2, 2]),
+        (28, 29, [3, 3]),
+        (31, 33, [3, 3]),
+        (32, 34, [4, 4]),
+        (1000, 1000, [246, 197]),
     ]
 )
 def test_get_human_age(first_year: int,
                        second_year: int,
                        result: list[int]) -> None:
     assert get_human_age(first_year, second_year) == result
+
+@pytest.mark.parametrize(
+    "cat_age,dog_age",
+    [
+        ("10", 10),
+        (10, "10"),
+        (10.5, 10),
+        (10, 10.5),
+    ]
+)
+def test_get_human_age_raises_type_error_when_age_is_not_int(
+    cat_age: object,
+    dog_age: object
+) -> None:
+    with pytest.raises(TypeError):
+        get_human_age(cat_age, dog_age)
