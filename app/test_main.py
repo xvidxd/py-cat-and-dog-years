@@ -27,6 +27,7 @@ def test_get_human_age(first_year: int,
                        result: list[int]) -> None:
     assert get_human_age(first_year, second_year) == result
 
+
 @pytest.mark.parametrize(
     "cat_age,dog_age",
     [
