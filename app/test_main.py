@@ -8,8 +8,9 @@ from app.main import get_human_age
     "first_year,second_year,result",
     [
         (0, 0, [0, 0]),
+
         (14, 14, [0, 0]),
-        (15 , 15, [1, 1]),
+        (15, 15, [1, 1]),
         (23, 23, [1, 1]),
         (24, 24, [2, 2]),
         (27, 27, [2, 2]),
@@ -20,6 +21,7 @@ from app.main import get_human_age
         (31, 33, [3, 3]),
         (32, 34, [4, 4]),
         (1000, 1000, [246, 197]),
+        (-1, -1, [0, 0]),
     ]
 )
 def test_get_human_age(first_year: int,
